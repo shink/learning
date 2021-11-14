@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "actuator-test-demo"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+    export:
+      prometheus:
+        enabled: true
+info:
+  app:
+    name: ${spring.application.name}
+    encoding: "UTF-8"
+    java:
+      source: 1.8
+      target: 1.8
